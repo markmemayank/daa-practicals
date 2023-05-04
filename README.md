@@ -1,7 +1,6 @@
 #DAA practicals
 
-1. a)Implement Insertion Sort (The program should report the number of comparisons) 
-1. b)Implement Merge Sort(The program should report the number of comparisons)
+1. a)Implement Insertion Sort (The program should report the number of comparisons) b)Implement Merge Sort(The program should report the number of comparisons)
 
 2. Implement Heap Sort (The program should report the number of comparisons)
 
