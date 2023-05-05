@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <random>
+
+using namespace std;
+
+// Function to partition the array
+int partition(vector<int>& arr, int low, int high, int& cmp_count) {
+    // Select random pivot element
+    int pivot_index = low + rand() % (high - low + 1);
+    int pivot = arr[pivot_index];
+    swap(arr[pivot_index], arr[high]); // Move pivot to end
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+        cmp_count++; // Increment comparison count
+    }
+    swap(arr[i+1], arr[high]); // Move pivot to correct position
+    return i+1;
+}
+
+// Function to perform quicksort
+void quicksort(vector<int>& arr, int low, int high, int& cmp_count) {
+    if (low < high) {
+        int pi = partition(arr, low, high, cmp_count);
+        quicksort(arr, low, pi-1, cmp_count);
+        quicksort(arr, pi+1, high, cmp_count);
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int cmp_count = 0;
+    quicksort(arr, 0, n-1, cmp_count);
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\nNumber of comparisons made: " << cmp_count << "\n";
+    return 0;
+}
