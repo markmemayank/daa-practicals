@@ -18,3 +18,5 @@
 
 9. Write a program to determine the minimum spanning tree of a graph
 
+10. Implement selection sort
+
